@@ -6,7 +6,7 @@
     <title>Register - HackHub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: #f8f9fa; padding: 2rem 0; }
+        body { background: #0f0f23; padding: 2rem 0; }
         .form-container { max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
         .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; }
     </style>
@@ -26,8 +26,152 @@
                 {% endif %}
             {% endwith %}
             
-            <form method="POST">
-                <div class="row">
+            <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+        background: linear-gradient(45deg, #0f0f23, #1a1b4b, #0f0f23);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        padding: 2rem 0;
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: rgba(15, 15, 35, 0.9);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+    }
+
+    h2 {
+        font-family: 'Orbitron', sans-serif;
+        color: #667eea;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #667eea, 0 0 10px #667eea; }
+        to { text-shadow: 0 0 10px #667eea, 0 0 20px #667eea; }
+    }
+
+    .form-label {
+        color: #667eea;
+        font-family: 'Share Tech Mono', monospace;
+        letter-spacing: 1px;
+    }
+
+    .form-control, .form-select {
+        background: rgba(15, 15, 35, 0.8);
+        border: 1px solid #667eea;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+        background: rgba(15, 15, 35, 0.9);
+        border-color: #764ba2;
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+        color: #fff;
+    }
+
+    .form-text {
+        color: #667eea;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        font-family: 'Share Tech Mono', monospace;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    }
+
+    .btn-primary:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
+    }
+
+    .btn-primary:hover:before {
+        left: 100%;
+    }
+
+    .btn-outline-secondary {
+        color: #667eea;
+        border-color: #667eea;
+        font-family: 'Share Tech Mono', monospace;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-secondary:hover {
+        background: rgba(102, 126, 234, 0.1);
+        color: #764ba2;
+        border-color: #764ba2;
+    }
+
+    .alert {
+        background: rgba(15, 15, 35, 0.9);
+        border: 1px solid #667eea;
+        color: #667eea;
+        animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(15, 15, 35, 0.9);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 4px;
+    }
+
+    /* Placeholder text color */
+    ::placeholder {
+        color: rgba(102, 126, 234, 0.5) !important;
+    }
+</style>                <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="name" class="form-label">Full Name *</label>
